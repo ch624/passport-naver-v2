@@ -3,7 +3,7 @@ import OAuth2Strategy, {
   StrategyOptions,
   VerifyFunction,
 } from 'passport-oauth2'
-
+import { Request } from 'express';
 import { PassportProfileBody, Profile } from './types'
 import { AUTHORIZATION_URL, AUTHORIZATION_NAME, TOKEN_URL, PROFILE_URL } from './constants'
 
@@ -19,6 +19,10 @@ export default class Strategy extends OAuth2Strategy {
 
     this.name = 'naver'
     this._profileURL = PROFILE_URL
+  }
+
+  authenticate(req: Request, options?: any) {
+    super.authenticate(req, options)
   }
 
   authorizationParams(options) {
