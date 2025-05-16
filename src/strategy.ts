@@ -21,10 +21,6 @@ export default class Strategy extends OAuth2Strategy {
     this._profileURL = PROFILE_URL
   }
 
-  authenticate(req: Request, options?: any) {
-    super.authenticate(req, options)
-  }
-
   authorizationParams(options) {
     var params = {} as any
 

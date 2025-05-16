@@ -1,5 +1,6 @@
 import passport from 'passport'
 import { StrategyOptions, VerifyFunction } from 'passport-oauth2'
+import { Request } from 'express'
 
 export type Profile = {
   provider: 'naver'
@@ -23,6 +24,7 @@ export class Strategy extends passport.Strategy {
 
   userProfile(accessToken: string, done: (error: Error, profile?: Profile) => void): void
   authorizationParams(options: any): any
+  authenticate(req: Request, options?: any): void
 
   name: string
 }
